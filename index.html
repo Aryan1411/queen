@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nisha | Data Scientist Portfolio</title>
+  <meta name="description" content="Portfolio of Nisha — Data Scientist with 3 years of experience as a Data Analyst. Projects: MAD1, MAD2, BDM and more. Explore skills, experience, and contact." />
+  <meta property="og:title" content="Nisha | Data Scientist Portfolio" />
+  <meta property="og:description" content="Data Scientist with 3 years of Data Analyst experience. View projects, skills and contact." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+      --bg: #0b1220;
+      --bg-2: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --primary: #7c5cff;
+      --primary-2: #22d3ee;
+      --card: rgba(255,255,255,0.06);
+      --stroke: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 16px;
+    }
+    [data-theme="light"]{
+      --bg: #f8fafc;
+      --bg-2: #eef2ff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #5b21b6;
+      --primary-2: #0ea5e9;
+      --card: rgba(255,255,255,0.85);
+      --stroke: rgba(15, 23, 42, 0.08);
+      --shadow: 0 8px 24px rgba(2,6,23,0.1);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,0.18), transparent 50%),
+        radial-gradient(900px 600px at 110% 10%, rgba(34,211,238,0.18), transparent 50%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      background-attachment: fixed;
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.3));
+      border-bottom: 1px solid var(--stroke);
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.4px}
+    .brand .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: conic-gradient(from 220deg, var(--primary), var(--primary-2), var(--primary));
+      box-shadow: var(--shadow);
+      display:grid;place-items:center;color:white;font-size:14px;
+    }
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:10px;border:1px solid transparent}
+    .nav-links a:hover{border-color:var(--stroke);background:var(--card)}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:12px;border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      box-shadow: var(--shadow);
+      cursor:pointer;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border: none;color:white;
+    }
+    .theme-toggle{width:40px;height:40px;border-radius:10px;border:1px solid var(--stroke);display:grid;place-items:center;background:var(--card);cursor:pointer}
+    .mobile-toggle{display:none}
+    /* hero */
+    .hero{padding:80px 0 40px}
+    .hero-inner{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;
+    }
+    .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid var(--stroke);background:var(--card);color:var(--muted);font-size:14px
+    }
+    h1{font-size:clamp(32px, 6vw, 54px);line-height:1.1;margin:14px 0}
+    .lead{font-size:18px;color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+    .stats{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap}
+    .stat{
+      padding:14px 16px;border-radius:14px;border:1px solid var(--stroke);background:var(--card);
+      min-width:160px
+    }
+    .stat b{font-size:20px}
+    .hero-card{
+      border:1px solid var(--stroke);background:var(--card);border-radius:20px;padding:20px;
+      position:relative;overflow:hidden
+    }
+    .mesh{
+      position:absolute;inset:-40%;background:
+        radial-gradient(200px 200px at 70% 20%, rgba(124,92,255,.3), transparent 60%),
+        radial-gradient(250px 220px at 20% 80%, rgba(34,211,238,.25), transparent 60%);
+      filter: blur(30px);opacity:.9;pointer-events:none;
+      animation: float 12s ease-in-out infinite;
+    }
+    @keyframes float{0%,100%{transform:translateY(-2%)}50%{transform:translateY(2%)}}
+    .avatar{
+      width:84px;height:84px;border-radius:20px;border:1px solid var(--stroke);
+      background: linear-gradient(135deg, rgba(124,92,255,.3), rgba(34,211,238,.25));
+      display:grid;place-items:center;font-weight:700;color:white;position:relative;z-index:1
+    }
+    .grid{
+      display:grid;gap:18px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    section{padding:40px 0}
+    .section-title{font-size:28px;margin:0 0 14px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:8px 12px;border-radius:999px;background:var(--card);border:1px solid var(--stroke);font-size:14px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:16px;
+      display:flex;flex-direction:column;gap:10px;transition:transform .2s ease, border-color .2s ease
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(124,92,255,.35)}
+    .card .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag-small{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(124,92,255,.14);color:var(--text);border:1px solid rgba(124,92,255,.32)}
+    .timeline{display:grid;gap:16px}
+    .item{
+      background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:16px
+    }
+    .item header{position:relative;background:none;border:none;backdrop-filter:none;padding:0}
+    .item h3{margin:0 0 4px}
+    .muted{color:var(--muted)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    input, textarea{
+      width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--stroke);background:var(--card);color:var(--text)
+    }
+    label{font-size:14px;color:var(--muted)}
+    .socials{display:flex;gap:10px;margin-top:12px}
+    .icon-btn{
+      width:40px;height:40px;border-radius:10px;border:1px solid var(--stroke);background:var(--card);
+      display:grid;place-items:center;cursor:pointer
+    }
+    footer{padding:30px 0;color:var(--muted);text-align:center;border-top:1px solid var(--stroke);margin-top:40px;backdrop-filter: blur(6px)}
+    /* responsive */
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid, .cards{grid-template-columns:1fr 1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .mobile-toggle{display:inline-flex}
+    }
+    @media (max-width: 600px){
+      .grid, .cards{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .mesh{animation:none}
+      .card, .hero-inner{transition:none}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">N</div>
+          <span>Nisha — Data Scientist</span>
+        </div>
+        <div class="nav-links" id="navlinks">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+          <a class="btn" href="resume.pdf" download>Download Resume</a>
+          <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+        <button class="theme-toggle mobile-toggle" id="menuBtn" aria-label="Toggle menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-inner">
+        <div>
+          <span class="tag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15A7.49 7.49 0 0 0 21 12a7.5 7.5 0 1 0-7.5 7.5c1.07 0 2.08-.23 3-.64"/></svg>
+            Data Science & Analytics
+          </span>
+          <h1>Hi, I’m Nisha — Data Scientist turning data into decisions</h1>
+          <p class="lead">
+            With 3 years of hands‑on experience as a Data Analyst, I build data products and analytics solutions that power business outcomes.
+            I love working across the stack: data pipelines, modeling, and clean, insightful visualizations.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="muted">Experience</div>
+              <b>3+ years</b>
+            </div>
+            <div class="stat">
+              <div class="muted">Projects</div>
+              <b>10+ delivered</b>
+            </div>
+            <div class="stat">
+              <div class="muted">Toolbox</div>
+              <b>Python · SQL · BI</b>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="mesh" aria-hidden="true"></div>
+          <div style="position:relative;z-index:1">
+            <div style="display:flex;align-items:center;gap:14px">
+              <div class="avatar">N</div>
+              <div>
+                <b>Nisha</b>
+                <div class="muted">Data Scientist</div>
+              </div>
+            </div>
+            <div class="grid" style="margin-top:16px">
+              <div class="chip">Python · Pandas</div>
+              <div class="chip">SQL · ETL</div>
+              <div class="chip">scikit‑learn</div>
+              <div class="chip">Visualization</div>
+              <div class="chip">A/B Testing</div>
+              <div class="chip">Tableau / Power BI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <h2 class="section-title">About</h2>
+      <div class="item">
+        <p>
+          I’m a results‑driven data professional who enjoys simplifying complex data problems and shipping reliable analytics.
+          My work spans data wrangling, feature engineering, predictive modeling, and storytelling with dashboards.
+          I care about clarity, measurable impact, and creating tools teams enjoy using.
+        </p>
+        <p class="muted" style="margin:0">
+          Currently exploring opportunities in data science and analytics engineering. Open to collaborations on ML, forecasting, and data apps.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">Pandas · NumPy</span>
+        <span class="chip">scikit‑learn</span>
+        <span class="chip">TensorFlow / PyTorch (basics)</span>
+        <span class="chip">SQL (PostgreSQL, MySQL)</span>
+        <span class="chip">Data Modeling</span>
+        <span class="chip">ETL / Pipelines</span>
+        <span class="chip">APIs · JSON</span>
+        <span class="chip">Statistics · Hypothesis Testing</span>
+        <span class="chip">A/B Testing</span>
+        <span class="chip">Time Series</span>
+        <span class="chip">Tableau · Power BI</span>
+        <span class="chip">Matplotlib · Seaborn · Plotly</span>
+        <span class="chip">Excel · Power Query</span>
+        <span class="chip">Git · GitHub</span>
+        <span class="chip">AWS (S3, Lambda basics)</span>
+        <span class="chip">Jupyter · Notebooks</span>
+        <span class="chip">Data Storytelling</span>
+      </div>
+    </section>
+
+    <section id="projects" class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="tag">MAD1</div>
+          <h3>Marketing Analytics Dashboard (MAD1)</h3>
+          <p class="muted">Built an end‑to‑end dashboard to monitor campaign performance, cohort retention, and CAC/LTV ratios across segments.</p>
+          <div class="tags">
+            <span class="tag-small">Python</span>
+            <span class="tag-small">SQL</span>
+            <span class="tag-small">Tableau</span>
+            <span class="tag-small">A/B Testing</span>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:10px">
+            <a class="btn" href="#" aria-label="View MAD1 details">Case Study</a>
+            <a class="btn" href="#" aria-label="Open MAD1 live">Live Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="tag">MAD2</div>
+          <h3>Attribution & Budget Optimizer (MAD2)</h3>
+          <p class="muted">Multi‑touch attribution with channel‑level ROI and a budget allocator to maximize conversions under spend constraints.</p>
+          <div class="tags">
+            <span class="tag-small">scikit‑learn</span>
+            <span class="tag-small">Optimization</span>
+            <span class="tag-small">Dash/Streamlit</span>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:10px">
+            <a class="btn" href="#" aria-label="View MAD2 details">Case Study</a>
+            <a class="btn" href="#" aria-label="Open MAD2 live">Live App</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="tag">BDM</div>
+          <h3>Big Data Metrics (BDM)</h3>
+          <p class="muted">Batch + incremental pipeline to compute product KPIs from event data with anomaly alerts and SLA compliance.</p>
+          <div class="tags">
+            <span class="tag-small">PySpark</span>
+            <span class="tag-small">AWS</span>
+            <span class="tag-small">Airflow</span>
+            <span class="tag-small">Data Quality</span>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:10px">
+            <a class="btn" href="#" aria-label="View BDM details">Architecture</a>
+            <a class="btn" href="#" aria-label="Open BDM repo">Repo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="tag">Forecast</div>
+          <h3>Sales Demand Forecasting</h3>
+          <p class="muted">Classical + ML time‑series models to forecast SKU demand and reduce stockouts with feature‑rich exogenous signals.</p>
+          <div class="tags">
+            <span class="tag-small">Prophet</span>
+            <span class="tag-small">XGBoost</span>
+            <span class="tag-small">Time Series</span>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:10px">
+            <a class="btn" href="#" aria-label="View Forecasting details">Notebook</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="tag">NLP</div>
+          <h3>Support Ticket Triage</h3>
+          <p class="muted">NLP pipeline to auto‑classify and prioritize tickets, improving first response time and routing accuracy.</p>
+          <div class="tags">
+            <span class="tag-small">spaCy</span>
+            <span class="tag-small">tf‑idf</span>
+            <span class="tag-small">FastAPI</span>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:10px">
+            <a class="btn" href="#" aria-label="View NLP details">Case Study</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="tag">Viz</div>
+          <h3>Executive KPI Storyboard</h3>
+          <p class="muted">Interactive BI storyboard combining revenue, churn, and funnel diagnostics for leadership reviews.</p>
+          <div class="tags">
+            <span class="tag-small">Power BI</span>
+            <span class="tag-small">DAX</span>
+            <span class="tag-small">Design</span>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:10px">
+            <a class="btn" href="#" aria-label="View storyboard details">Screenshots</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+        <div class="item">
+          <header>
+            <h3>Data Analyst → Data Scientist</h3>
+            <div class="muted">2022 — Present · 3 years</div>
+          </header>
+          <ul style="margin:10px 0 0 18px">
+            <li>Designed metrics and dashboards used by product and marketing, improving decision speed.</li>
+            <li>Built pipelines and ML models for forecasting, segmentation, and attribution.</li>
+            <li>Partnered with stakeholders to turn ambiguous questions into measurable experiments.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <header>
+            <h3>Freelance / Side Projects</h3>
+            <div class="muted">Ongoing</div>
+          </header>
+          <ul style="margin:10px 0 0 18px">
+            <li>MAD1, MAD2, BDM and other analytics solutions delivered end‑to‑end.</li>
+            <li>Prototyped data apps with Streamlit and Plotly Dash.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <h2 class="section-title">Get in touch</h2>
+      <div class="contact-grid">
+        <div class="item">
+          <p>Have a project, role, or idea to explore? I’d love to hear from you.</p>
+          <div class="socials" role="group" aria-label="Social links">
+            <a class="icon-btn" href="mailto:nisha@example.com" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+            </a>
+            <a class="icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.07C13.6 8.9 15.5 8 17.7 8 22.4 8 24 10.7 24 15.2V24h-5v-7.6c0-1.8 0-4.2-2.6-4.2-2.6 0-3 2-3 4v7.8H8V8z"/></svg>
+            </a>
+            <a class="icon-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.86 3.15 8.98 7.52 10.43.55.1.75-.24.75-.53 0-.26-.01-1.14-.02-2.07-3.06.67-3.7-1.3-3.7-1.3-.5-1.27-1.22-1.61-1.22-1.61-1-.7.08-.68.08-.68 1.1.08 1.68 1.12 1.68 1.12.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.44-.28-5-1.22-5-5.43 0-1.2.43-2.18 1.12-2.95-.11-.28-.48-1.4.11-2.92 0 0 .91-.29 2.98 1.13a10.2 10.2 0 0 1 5.42 0c2.07-1.42 2.98-1.13 2.98-1.13.59 1.52.22 2.64.11 2.92.69.77 1.12 1.75 1.12 2.95 0 4.22-2.56 5.15-5 5.43.4.34.75 1 .75 2.02 0 1.46-.01 2.64-.01 3 0 .29.2.64.75.53A10.9 10.9 0 0 0 23.1 11.6C23.1 5.33 18.27.5 12 .5z"/></svg>
+            </a>
+          </div>
+          <div style="margin-top:10px" class="muted">Email: nisha@example.com</div>
+        </div>
+        <form class="item" onsubmit="contactSubmit(event)">
+          <div style="display:grid;gap:10px">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send Message</button>
+            <div id="formStatus" class="muted" role="status" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="year"></span> Nisha. All rights reserved. · MIT License</div>
+    </div>
+  </footer>
+
+  <script>
+    // Persisted theme
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme', saved); }
+    themeBtn?.addEventListener('click', ()=>{
+      const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+    });
+
+    // Smooth scroll (native CSS covers most; ensure offset on iOS)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          const el = document.querySelector(id);
+          if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      })
+    });
+
+    // Mobile menu: clone links into a drawer when small
+    const menuBtn = document.getElementById('menuBtn');
+    const navlinks = document.getElementById('navlinks');
+    let drawer;
+    function buildDrawer(){
+      drawer = document.createElement('div');
+      drawer.style.position = 'fixed';
+      drawer.style.inset = '64px 0 auto 0';
+      drawer.style.background = getComputedStyle(document.body).getPropertyValue('--card');
+      drawer.style.backdropFilter = 'blur(10px)';
+      drawer.style.borderBottom = `1px solid ${getComputedStyle(document.body).getPropertyValue('--stroke')}`;
+      drawer.style.boxShadow = '0 10px 30px rgba(0,0,0,.2)';
+      drawer.style.padding = '10px 16px';
+      drawer.style.display = 'none';
+      drawer.setAttribute('id','drawer');
+      document.body.appendChild(drawer);
+      const links = navlinks.cloneNode(true);
+      links.style.display = 'grid';
+      links.style.gridTemplateColumns = '1fr';
+      links.querySelector('#themeBtn')?.remove();
+      Array.from(links.querySelectorAll('a')).forEach(a=>{
+        a.style.padding = '12px 10px';
+        a.addEventListener('click', ()=>{ drawer.style.display='none'; });
+      });
+      drawer.appendChild(links);
+    }
+    menuBtn?.addEventListener('click', ()=>{
+      if(!drawer) buildDrawer();
+      drawer.style.display = drawer.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Simple intersection reveals
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.style.transition = 'transform .6s ease, opacity .6s ease';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.opacity = '1';
+          observer.unobserve(e.target);
+        }
+      })
+    }, {threshold:.08});
+    document.querySelectorAll('section .card, section .item, .stat, .chip').forEach(el=>{
+      el.style.transform = 'translateY(10px)';
+      el.style.opacity = '.001';
+      observer.observe(el);
+    });
+
+    // Contact fake submit
+    function contactSubmit(e){
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      const data = new FormData(e.target);
+      status.textContent = 'Sending...';
+      setTimeout(()=>{
+        status.textContent = 'Thanks, ' + (data.get('name')||'there') + '! I’ll get back to you soon.';
+        e.target.reset();
+      }, 600);
+    }
+    window.contactSubmit = contactSubmit;
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // SEO: Person JSON-LD
+    const ld = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nisha",
+      "jobTitle": "Data Scientist",
+      "description": "Data Scientist with 3 years of experience as a Data Analyst. Projects include MAD1, MAD2, BDM.",
+      "url": location.href,
+      "sameAs": ["mailto:nisha@example.com","https://www.linkedin.com/","https://github.com/"]
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(ld);
+    document.head.appendChild(script);
+  </script>
+</body>
+</html>
